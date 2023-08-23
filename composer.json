@@ -1,0 +1,15 @@
+{
+    "name": "duartebv/poo",
+    "autoload": {
+        "psr-4": {
+            "Duartebv\\Poo\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "DuarteDc",
+            "email": "al221910409@gmail.com"
+        }
+    ],
+    "require": {}
+}
