@@ -24,6 +24,11 @@ class User
         return $this->id;
     }
 
+    public function getName()
+    {
+        return $this->username;
+    }
+
     public function publish(Post $post)
     {
         array_push($this->posts, $post);
@@ -42,10 +47,28 @@ class User
     }
 
 
-    private function hasFollowers(User $user)
+    private function hasFollower(User $user)
     {
         $found = array_filter($this->followers, fn (User $follower) => $follower->id === $user->id);
 
         return count($found) === 1;
+    }
+
+    public function addFollower(User $user)
+    {
+        if ($this->hasFollower($user)) return print_r("El usuario {$this->getName()} ya te sigue \n");
+
+        if ($this->id === $user->id) return print_r("No pudes agregarte a ti mismo como usuario");
+
+        array_push($this->followers, $user);
+    }
+
+    public static function showProfile(User $user)
+    {
+        $profile = "Nombre: {$user->getName()} \n";
+        $profile .= "Followers: " . count($user->followers) . "\n";
+        $profile .= "Posts: " . count($user->posts) . "\n";
+
+        return $profile;
     }
 }
