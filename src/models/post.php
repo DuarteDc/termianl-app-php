@@ -13,6 +13,7 @@ class Post
     {
         print_r("Se creo un nuevo objeto \n");
         $this->id = UUID::generate();
+        $this->likes = [];
     }
 
     protected function saludo()

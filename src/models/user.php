@@ -46,7 +46,6 @@ class User
         }
     }
 
-
     private function hasFollower(User $user)
     {
         $found = array_filter($this->followers, fn (User $follower) => $follower->id === $user->id);

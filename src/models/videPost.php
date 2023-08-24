@@ -16,7 +16,6 @@ class VideoPost extends Post implements IPost
         return $this->video;
     }
 
-
     public function toString(): string
     {
         $info = "id: {$this->getId()} \n";
